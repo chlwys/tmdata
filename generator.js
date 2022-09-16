@@ -1,4 +1,5 @@
 fs = require('fs');
+const { BigNumber } = require('ethers');
 
 const SIZE = 8; // equiv to uint8
 
@@ -23,9 +24,11 @@ let numElements;
 const baseURI = "https://raw.githubusercontent.com/chlwys/test3/main/public/";
 
 function packArray(elements) {
-  let result = 0;
+  let result = BigNumber.from(0);
   for(let i = 0; i < elements.length; i++) {
-    result = ((result << SIZE) >>> 0) | elements[numElements - i - 1];
+    // result = ((result << SIZE) >>> 0) | elements[numElements - i - 1];
+    result = result.shl(SIZE);
+    result = result.or(BigNumber.from(elements[numElements - i - 1]));
   }
 
   return result;
@@ -52,6 +55,9 @@ function mainLoop(elements, position) {
       const name  = './svgFiles/' + packed.toString() + '.svg';
 
       const svg = createSvg(elements);
+
+      console.log(packed.toString());
+      console.log(elements);
 
       fs.writeFile(name, svg, function(err) {
         if (err) {
