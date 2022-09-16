@@ -46,20 +46,25 @@ function createSvg(elements) {
   return result;
 }
 
+function createJson(svg) {
+  return '{"description": "imp", "external_url": "https://asphodel.xyz", "image": "data:image/svg+xml;base64' + svg + '"}';
+}
+
 function mainLoop(elements, position) {
   for(let i = 0; i <= max_all[position]; i++) {
     elements[position] = i;
     if(position == numElements - 1) {
 
       const packed = packArray(elements);
-      const name  = './svgFiles/' + packed.toString() + '.svg';
+      const name  = './jsonFiles/' + packed.toString() + '.json';
 
       const svg = createSvg(elements);
+      const json = createJson(svg);
 
       console.log(packed.toString());
       console.log(elements);
 
-      fs.writeFile(name, svg, function(err) {
+      fs.writeFile(name, json, function(err) {
         if (err) {
           console.log(err);
         }
