@@ -25,7 +25,7 @@ const baseURI = "https://raw.githubusercontent.com/chlwys/test3/main/public/";
 function packArray(elements) {
   let result = 0;
   for(let i = 0; i < elements.length; i++) {
-    result = ((result << SIZE) >>> 0) | elements[i];
+    result = ((result << SIZE) >>> 0) | elements[numElements - i - 1];
   }
 
   return result;
