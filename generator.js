@@ -47,7 +47,7 @@ function createSvg(elements) {
 }
 
 function createJson(svg) {
-  return '{"description": "imp", "external_url": "https://asphodel.xyz", "image": "data:image/svg+xml;base64,' + svg + '"}';
+  return '{"description": "imp", "external_url": "https://asphodel.xyz", "image_data": "' + svg + '"}';
 }
 
 function mainLoop(elements, position) {
