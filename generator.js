@@ -52,7 +52,7 @@ function createJson(svg) {
     "description": "imp",
     "external_url": "https://asphodel.xyz", 
     "name": "imp",
-    "image": " data:image/svg+xml;base64,` + encodedSvg 
+    "image_data": " data:image/svg+xml;base64,` + encodedSvg 
       + '"}';
 }
 
