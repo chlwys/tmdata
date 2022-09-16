@@ -35,10 +35,10 @@ function packArray(elements) {
 }
 
 function createSvg(elements) {
-  let result = '<svg height="350" width="350" xmlns="http://www.w3.org/2000/svg">';
+  let result = '<svg xmlns="http://www.w3.org/2000/svg">';
 
   for(let i = 0; i < elements.length; i++) {
-    result = result + '<image height="350" width="350" href="' + baseURI + i + elements[i] + '.png"/>';
+    result = result + '<image href="' + baseURI + i + elements[i] + '.png"/>';
   }
 
   result = result + '</svg>';
